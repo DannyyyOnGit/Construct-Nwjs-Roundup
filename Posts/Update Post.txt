@@ -1,0 +1,7 @@
+[h2]The Roundup has just been updated![/h2]
+#Desc#
+
+[b]Changes:[/b]
+[ul]
+	[li]<#ChangeType#> #ChangeDesc#[/li]
+[/ul]
