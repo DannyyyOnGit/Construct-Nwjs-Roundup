@@ -18,7 +18,8 @@
 [li]How To: Workaround Steam Overlay Not Appearing[/li]
 [li]How To: Workaround Steam Overlay Displaying Window Content[/li]
 [li]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/li]
-[li]How To: Force GC To Instantly Unload Audio From Memory[/li][/ul]
+[li]How To: Force GC To Instantly Unload Audio From Memory[/li]
+[li]How To: Workaround incorrect window size[/li][/ul]
 [b]Custom Features & Debugging Tools[/b]
 [ul]
 [li]How To: Speed Up The Startup Time Of Your Game[/li]
@@ -137,6 +138,48 @@ Garbage Collector is not doing the job and bloats memory usage. Frequent game cr
 [li] Execute the following JS code using the browser plugin:[/li][/ol]
 
 [code lang="javascript"]"global.gc();"[/code][hr]
+
+[h3]How To: Workaround incorrect window size[/h3]
+NWjs doesn't start with the correct window size, often resulting in unexpected letterboxing.
+[warning]Might not be required for NWjs releases starting from [b]v0.43.0 (NW2)[/b].[/warning]
+
+[b]Steps To Add/Fix/Workaround:[/b]
+[ol]
+[li] Add the [i]browser[/i] plugin to your project[/li]
+[li] Select an event which only triggers once (e.g. inside the loader layout)[/li]
+[li] Add the browser action [i]execute javascript[/i][/li]
+[li] Execute the following code:[/li][/ol]
+
+Construct 2:
+[code lang="javascript"]"if (!(this.runtime.firstInFullscreen || window['innerWidth'] === this.runtime.original_width && window['innerHeight'] === this.runtime.original_height))
+{
+    var dh = Math.floor(this.runtime.original_height - window['innerHeight']);
+    var dw = Math.floor(this.runtime.original_width - window['innerWidth']);
+
+    window['resizeBy'](dw, dh);
+    console.log('Resized window by w: ' + dw + ', h: ' + dh);
+}
+else
+{
+    console.log('No window resize was required!');
+}"[/code]
+
+Construct 3:
+[code lang="javascript"]"var cm = this._runtime._canvasManager;
+var rt = this._runtime;
+if (!(cm.IsDocumentFullscreen() || cm._windowInnerWidth === rt._originalViewportWidth && cm._windowInnerHeight === rt._originalViewportHeight))
+{
+    var dh = Math.floor(rt._originalViewportHeight - window['innerHeight']);
+    var dw = Math.floor(rt._originalViewportWidth - window['innerWidth']);
+
+    window['resizeBy'](dw, dh);
+    console.log('Resized window by w: ' + dw + ', h: ' + dh);
+}
+else
+{
+    console.log('No window resize was required!');
+}"[/code]
+[i](Code provided by [@Colludium].)[/i][hr]
 [/tab]
 
 [tab title="NW.js - Features"]
