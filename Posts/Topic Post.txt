@@ -266,5 +266,6 @@ NWjs plugin can't fetch and make use of any command-line arguments.
 [li][b]NW.js [v0.33.0]:[/b] Gamepad API stopped working as of NW.js 0.33 ([url=https://github.com/nwjs/nw.js/issues/6792]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.41.0 - v0.42.0]:[/b] Slow Startup Performance Regression ([url=https://github.com/nwjs/nw.js/issues/7192]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.42.4 - v0.43.1]:[/b] --disable-devtools Chromium-Arg Stopped Working ([url=https://github.com/nwjs/nw.js/issues/7279]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.43.1 - ?]:[/b] [NW2] Regression in window sizing ([url=https://github.com/nwjs/nw.js/issues/7284]Open Link ➚[/url])[/li]
 [/ul]
 [/tab]
