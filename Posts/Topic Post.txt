@@ -1,4 +1,4 @@
-﻿[img="https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/Nwjsroundup.png"]
+﻿﻿[img="https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/Nwjsroundup.png"]
 
 [tabgroup]
 [tab title="Topic Overview"]
@@ -153,15 +153,15 @@ NWjs doesn't start with the correct window size, often resulting in unexpected l
 Construct 2:
 [code lang="javascript"]"if (!(this.runtime.firstInFullscreen || window['innerWidth'] === this.runtime.original_width && window['innerHeight'] === this.runtime.original_height))
 {
-    var dh = Math.floor(this.runtime.original_height - window['innerHeight']);
-    var dw = Math.floor(this.runtime.original_width - window['innerWidth']);
+ var dh = Math.floor(this.runtime.original_height - window['innerHeight']);
+ var dw = Math.floor(this.runtime.original_width - window['innerWidth']);
 
-    window['resizeBy'](dw, dh);
-    console.log('Resized window by w: ' + dw + ', h: ' + dh);
+ window['resizeBy'](dw, dh);
+ console.log('Resized window by w: ' + dw + ', h: ' + dh);
 }
 else
 {
-    console.log('No window resize was required!');
+ console.log('No window resize was required!');
 }"[/code]
 
 Construct 3:
@@ -169,15 +169,15 @@ Construct 3:
 var rt = this._runtime;
 if (!(cm.IsDocumentFullscreen() || cm._windowInnerWidth === rt._originalViewportWidth && cm._windowInnerHeight === rt._originalViewportHeight))
 {
-    var dh = Math.floor(rt._originalViewportHeight - window['innerHeight']);
-    var dw = Math.floor(rt._originalViewportWidth - window['innerWidth']);
+ var dh = Math.floor(rt._originalViewportHeight - window['innerHeight']);
+ var dw = Math.floor(rt._originalViewportWidth - window['innerWidth']);
 
-    window['resizeBy'](dw, dh);
-    console.log('Resized window by w: ' + dw + ', h: ' + dh);
+ window['resizeBy'](dw, dh);
+ console.log('Resized window by w: ' + dw + ', h: ' + dh);
 }
 else
 {
-    console.log('No window resize was required!');
+ console.log('No window resize was required!');
 }"[/code]
 [i](Code provided by [@Colludium].)[/i][hr]
 [/tab]
@@ -311,5 +311,6 @@ NWjs plugin can't fetch and make use of any command-line arguments.
 [li][b]NW.js [v0.42.4 - v0.43.1]:[/b] --disable-devtools Chromium-Arg Stopped Working ([url=https://github.com/nwjs/nw.js/issues/7279]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.43.1 - v0.43.3]:[/b] [NW2] Regression in window sizing ([url=https://github.com/nwjs/nw.js/issues/7284]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.43.1 - v0.43.3]:[/b] NW2: Users can manually zoom using ALT/CTRL + Mousewheel ([url=https://github.com/nwjs/nw.js/issues/7309]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.44.0 - v0.46.0]:[/b] Window bar app icon is low quality again ([url=https://github.com/nwjs/nw.js/issues/7361]Open Link ➚[/url])[/li]
 [/ul]
 [/tab]
