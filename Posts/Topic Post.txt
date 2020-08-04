@@ -18,7 +18,6 @@
 [li]How To: Workaround Steam Overlay Not Appearing[/li]
 [li]How To: Workaround Steam Overlay Rendering Above Window Title Bar[/li]
 [li]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/li]
-[li]How To: Force GC To Instantly Unload Audio From Memory[/li]
 [li]How To: Workaround incorrect window size[/li]
 [li]How To: Workaround Game Canvas Not Rendering At All[/li][/ul]
 [b]Custom Features & Debugging Tools[/b]
@@ -29,7 +28,8 @@
 [li]How To: Test Your Game On Higher Framerates Than 60FPS[/li]
 [li]How To: Use The Built-in NW.js FPS Counter[/li]
 [li]How To: Modify/Remove Right-Click Context Menus[/li]
-[li]How To: Fetch & Make Use Of Command-line Arguments[/li][/ul]
+[li]How To: Fetch & Make Use Of Command-line Arguments[/li]
+[li]How To: Force GC To Instantly Unload Audio From Memory[/li][/ul]
 [b]References[/b]
 [ul]
 [li]Helpful Links[/li]
@@ -128,18 +128,6 @@ The Steam Overlay doesn't scale correctly on games with letterbox scaling enable
 [li] Download and install [url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Force%20Redraw/ForceRedraw.c2addon]THIS[/url] plugin[/li]
 [li] Use redraw action after closing/opening the Steam Overlay[/li][/ol][hr]
 
-[h3]How To: Force GC To Instantly Unload Audio From Memory[/h3]
-Garbage Collector is not doing the job and bloats memory usage.
-[tip][url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Force%20Unload/Force%20Unload.capx]HERE[/url] is an example to test it. Use Windows Task Manager for debugging.[/tip]
-
-[b]Steps To Add/Fix/Workaround:[/b]
-[ol]
-[li] Open the "package.json" file(s)[/li]
-[li] Add [b]--expose-gc[/b] to the "js-flags" properties[/li]
-[li] Execute the following JS code using the browser plugin:[/li][/ol]
-
-[code lang="javascript"]"global.gc();"[/code][hr]
-
 [h3]How To: Workaround incorrect window size[/h3]
 NWjs doesn't start with the correct window size, often resulting in unexpected letterboxing.
 [warning]Might not be required for NWjs releases starting from [b]v0.43.0 (NW2)[/b].[/warning]
@@ -189,7 +177,7 @@ The game starts and runs fine but the canvas is black.
 [b]Steps To Add/Fix/Workaround:[/b]
 [ol]
 [li] Open the "package.json" file(s)[/li]
-[li] Add [b]--disable-direct-composition[/b] to the "chromium-args" properties[/li][/ol]
+[li] Add [b]--disable-direct-composition[/b] to the "chromium-args" properties[/li][/ol][hr]
 [/tab]
 
 [tab title="NW.js - Features"]
@@ -289,6 +277,18 @@ The NWjs plugin can't fetch and make use of any command-line arguments.
 [li] [url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Fetch%20Command%20Line/NWjsCommandLine.capx]DOWNLOAD[/url] the example project[/li]
 [li] Define the command-line argument (use the global variable)[/li][/ol]
 [i](Example provided by [@Armaldio].)[/i][hr]
+
+[h3]How To: Force GC To Instantly Unload Audio From Memory[/h3]
+Garbage Collector is not doing the job and bloats memory usage.
+[tip][url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Force%20Unload/Force%20Unload.capx]HERE[/url] is an example to test it. Use Windows Task Manager for debugging.[/tip]
+
+[b]Steps To Add/Fix/Workaround:[/b]
+[ol]
+[li] Open the "package.json" file(s)[/li]
+[li] Add [b]--expose-gc[/b] to the "js-flags" properties[/li]
+[li] Execute the following JS code using the browser plugin:[/li][/ol]
+
+[code lang="javascript"]"global.gc();"[/code][hr]
 [/tab]
 
 [tab title="NW.js - Archive"]
