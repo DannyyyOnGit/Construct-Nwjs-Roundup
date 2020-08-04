@@ -1,4 +1,4 @@
-﻿﻿[img="https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/Nwjsroundup.png"]
+﻿﻿[img="https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/NwjsroundupGitHub.png"]
 
 [tabgroup]
 [tab title="Topic Overview"]
@@ -16,10 +16,11 @@
 [ul]
 [li]How To: Workaround Steam Overlay Not Refreshing[/li]
 [li]How To: Workaround Steam Overlay Not Appearing[/li]
-[li]How To: Workaround Steam Overlay Displaying Window Content[/li]
+[li]How To: Workaround Steam Overlay Rendering Above Window Title Bar[/li]
 [li]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/li]
 [li]How To: Force GC To Instantly Unload Audio From Memory[/li]
-[li]How To: Workaround incorrect window size[/li][/ul]
+[li]How To: Workaround incorrect window size[/li]
+[li]How To: Workaround Game Canvas Not Rendering At All[/li][/ul]
 [b]Custom Features & Debugging Tools[/b]
 [ul]
 [li]How To: Speed Up The Startup Time Of Your Game[/li]
@@ -91,7 +92,7 @@ The majority of features or bugfixes found in this topic will require chromium-a
 [tab title="NW.js - Workarounds"]
 [h1]Bugfixes & Workarounds[/h1]
 [h3]How To: Workaround Steam Overlay Not Refreshing[/h3]
-Steam Overlay feels unresponsive, fails to refresh displayed content correctly. The game has no moving elements that trigger a refresh on the current layout.
+The Steam Overlay feels unresponsive, fails to refresh displayed content correctly.
 [warning]This is an optional workaround and most games probably won't require this at all.[/warning]
 
 [b]Steps To Add/Fix/Workaround:[/b]
@@ -101,25 +102,25 @@ Steam Overlay feels unresponsive, fails to refresh displayed content correctly. 
 [li] Set the sprite opacity to 0% and make it global[/li][/ol][hr]
 
 [h3]How To: Workaround Steam Overlay Not Appearing[/h3]
-Steam Overlay doesn't appear at all or certain features aren't working, despite the game refreshing displayed content as intended.
+The Steam Overlay doesn't appear at all or certain features aren't working.
 [warning]The workaround has been tested using [b]NW.js v0.42.0[/b] and might not work with older versions.[/warning]
 
 [b]Steps To Add/Fix/Workaround:[/b]
 [ol]
 [li] Open the "package.json" file(s)[/li]
-[li] Add [b]--in-process-gpu --disable-direct-composition[/b] to the "chromium-args" properties[/li][/ol][hr]
+[li] Add [b]--in-process-gpu[/b] to the "chromium-args" properties[/li][/ol][hr]
 
-[h3]How To: Workaround Steam Overlay Displaying Window Content[/h3]
-Steam Overlay works as expected but displays weird in-app window content around it.
-[warning]This workaround is only required for [b]NW.js v0.42.3[/b] and older.[/warning]
+[h3]How To: Workaround Steam Overlay Rendering Above Window Title Bar[/h3]
+The Steam Overlay renders above the window title bar on Windows 10.
+[warning]This workaround is only required for [b]NW.js v0.44.2[/b] and newer.[/warning]
 
 [b]Steps To Add/Fix/Workaround:[/b]
 [ol]
 [li] Open the "package.json" file(s)[/li]
-[li] Add [b]--enable-features=nw2[/b] to the "chromium-args" properties[/li][/ol][hr]
+[li] Add [b]--disable-windows10-custom-titlebar[/b] to the "chromium-args" properties[/li][/ol][hr]
 
 [h3]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/h3]
-The Steam Overlay doesn't scale correctly on games with letterbox scaling enabled. Black bars around the game canvas glitch out and the Steam Overlay is still visible.
+The Steam Overlay doesn't scale correctly on games with letterbox scaling enabled. Black bars around the game canvas glitch out, still display the Overlay.
 [tip]It's recommended to [b]refresh for at least 2-3sec[/b] after closing/opening the Steam Overlay.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
@@ -128,7 +129,7 @@ The Steam Overlay doesn't scale correctly on games with letterbox scaling enable
 [li] Use redraw action after closing/opening the Steam Overlay[/li][/ol][hr]
 
 [h3]How To: Force GC To Instantly Unload Audio From Memory[/h3]
-Garbage Collector is not doing the job and bloats memory usage. Frequent game crashes related to reaching the system's memory limit.
+Garbage Collector is not doing the job and bloats memory usage.
 [tip][url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Force%20Unload/Force%20Unload.capx]HERE[/url] is an example to test it. Use Windows Task Manager for debugging.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
@@ -180,12 +181,21 @@ else
  console.log('No window resize was required!');
 }"[/code]
 [i](Code provided by [@Colludium].)[/i][hr]
+
+[h3]How To: Workaround Game Canvas Not Rendering At All[/h3]
+The game starts and runs fine but the canvas is black.
+[warning]This might slightly decrease game performance. Only use if necesarry.[/warning]
+
+[b]Steps To Add/Fix/Workaround:[/b]
+[ol]
+[li] Open the "package.json" file(s)[/li]
+[li] Add [b]--disable-direct-composition[/b] to the "chromium-args" properties[/li][/ol]
 [/tab]
 
 [tab title="NW.js - Features"]
 [h1]Custom Features & Debugging Tools [/h1]
 [h3]How To: Speed Up The Startup Time Of Your Game[/h3]
-Game takes a long time to start up. Game files are heavily compressed. The "package.nw" file is very large and contains a lot of assets.
+The game takes a long time to start up. The "package.nw" file is very large and contains a lot of assets.
 [tip]All your assets including textures, audio and code are inside the "package.nw" file.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
@@ -195,18 +205,18 @@ Game takes a long time to start up. Game files are heavily compressed. The "pack
 [li] Rename the unzipped folder to "package.nw" and remove all the old files[/li][/ol][hr]
 
 [h3]How To: Set Your Own Application Icon[/h3]
-Game is using the default NWjs icon as the window icon on Windows or OSX. The application icon seen inside the file browser is not using the game's custom icon.
-[tip]More recent versions of NWjs automatically use and apply the "icon-128.png" project file.[/tip]
+The game is using the default NWjs icon as the app icon.
+[tip]Some systems have strict icon caching. A system reboot might be required.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
 Windows only:
 [ol]
 [li] Convert PNG to ICO using an [url=https://www.icoconverter.com/]Online Converter[/url] [16-128px; 32bits][/li]
-[li] Start [url=http://www.angusj.com/resourcehacker/]ResHack[/url][/li]
+[li] Start [url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Reshack/Resource%20Hacker.zip]ResHack[/url][/li]
 [li] Open the nw.exe file(s)[/li]
-[li] Go to "Action" and then "Replace Icon"[/li]
+[li] Right-click on "Icon Group" and "Replace Icon"[/li]
 [li] Select and replace the application icon(s)[/li]
-[li] Save and remove any backup files if needed[/li][/ol]
+[li] Save and remove any backup/original files if needed[/li][/ol]
 
 MacOSX only:
 [ol]
@@ -226,7 +236,7 @@ Completly remove dev-tools access:
 [ul][li] Install the custom "Normal" build from the NWjs downloads website[/li][/ul][hr]
 
 [h3]How To: Test Your Game On Higher Framerates Than 60FPS[/h3]
-Game runs at a higher framerate than 60fps. The user's monitor runs at more than 60hz. Noticeable bugs for certain behaviors or game mechanics without dt (delta-time) in use.
+The game runs at a higher framerate than 60fps. The user's monitor runs at more than 60hz. Noticeable bugs for certain behaviors or game mechanics without dt (delta-time) in use.
 [tip]V-sync is on by default and synchronizes the games framerate with your monitors refresh rate.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
@@ -271,7 +281,7 @@ Leave "Cut", "Copy", "Paste" in right-click menus:
 [i](Code provided by [@Colludium].)[/i][hr]
 
 [h3]How To: Fetch & Make Use Of Command-line Arguments[/h3]
-NWjs plugin can't fetch and make use of any command-line arguments.
+The NWjs plugin can't fetch and make use of any command-line arguments.
 [warning]The example only allows the use of a single command-line argument![/warning]
 
 [b]Steps To Add/Fix/Workaround:[/b]
