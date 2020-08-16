@@ -121,12 +121,12 @@ The Steam Overlay renders above the window title bar on Windows 10.
 
 [h3]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/h3]
 The Steam Overlay doesn't scale correctly on games with letterbox scaling enabled. Black bars around the game canvas glitch out, still display the Overlay.
-[tip]It's recommended to [b]refresh for at least 2-3sec[/b] after closing/opening the Steam Overlay.[/tip]
+[tip]This might have a minimal impact on performance, depending on the device.[/tip]
 
 [b]Steps To Add/Fix/Workaround:[/b]
 [ol]
-[li] Download and install [url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Force%20Redraw/ForceRedraw.c2addon]THIS[/url] plugin[/li]
-[li] Use redraw action after closing/opening the Steam Overlay[/li][/ol][hr]
+[li] Download and install [url=https://www.construct.net/en/construct-2/addons/435/greenworksredraw]THIS[/url] plugin[/li]
+[li] Use action "Activate constant redraw" once (e.g. inside the loader layout)[/li][/ol][hr]
 
 [h3]How To: Workaround incorrect window size[/h3]
 NWjs doesn't start with the correct window size, often resulting in unexpected letterboxing.
