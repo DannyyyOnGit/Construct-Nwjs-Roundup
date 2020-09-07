@@ -19,7 +19,8 @@
 [li]How To: Workaround Steam Overlay Rendering Above Window Title Bar[/li]
 [li]How To: Workaround Steam Overlay Issues With Letterbox Scaling[/li]
 [li]How To: Workaround incorrect window size[/li]
-[li]How To: Workaround Game Canvas Not Rendering At All[/li][/ul]
+[li]How To: Workaround Game Canvas Not Rendering At All[/li]
+[li]How To: Workaround Media Keys Affecting Music Playback[/li][/ul]
 [b]Custom Features & Debugging Tools[/b]
 [ul]
 [li]How To: Speed Up The Startup Time Of Your Game[/li]
@@ -178,6 +179,14 @@ The game starts and runs fine but the canvas is black.
 [ol]
 [li] Open the "package.json" file(s)[/li]
 [li] Add [b]--disable-direct-composition[/b] to the "chromium-args" properties[/li][/ol][hr]
+
+[h3]How To: Workaround Media Keys Affecting Music Playback[/h3]
+Some keyboards have media keys (e.g. play/pause), that can affect music playback.
+
+[b]Steps To Add/Fix/Workaround:[/b]
+[ol]
+[li] Open the "package.json" file(s)[/li]
+[li] Add [b]--disable-features=HardwareMediaKeyHandling[/b] to the "chromium-args" properties[/li][/ol][hr]
 [/tab]
 
 [tab title="NW.js - Features"]
