@@ -11,7 +11,7 @@
 [ul]
 [li]Important Files & File Paths[/li]
 [li]How To: Modify The Package Manifest Files[/li]
-[li]How To: Add Chromium-Args & Js-flags[/li][/ul]
+[li]How To: Add Chromium-Args In The Package Manifest Files[/li][/ul]
 [b]Bugfixes & Workarounds[/b]
 [ul]
 [li]How To: Workaround Steam Overlay Not Refreshing[/li]
@@ -72,8 +72,8 @@ A common misconception is that you're required to edit the package manifest file
 
 [tip]These files can be found inside [b]C2's Folder For NWjs Files[/b].[/tip]
 
-[h3]How To: Add Chromium-Args & Js-flags[/h3]
-The majority of features or bugfixes found in this topic will require chromium-args or js-flags to be added to the package manifest files manually. Below you will find examples on how to do it. 
+[h3]How To: Add Chromium-Args In The Package Manifest Files[/h3]
+The majority of features or bugfixes found in this topic will require chromium-args (command-line arguments) to be added to the package manifest files. 
 
 [tip]Did something wrong? [url=https://github.com/TheRealDannyyy/Construct-Nwjs-Roundup/raw/master/Assets/Package%20Files/NwjsPackageFiles.zip]HERE[/url] are all files as they come with Construct 2.[/tip]
 
@@ -82,12 +82,6 @@ The majority of features or bugfixes found in this topic will require chromium-a
 [li] Open the "package.json" file(s)[/li]
 [li] Find the "chromium-args" property[/li]
 [li] Add a Chromium-Arg with 1 empty space in between other args ([url=https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/Default%2BArg.PNG]Example ➚[/url])[/li][/ol]
-
-[b]Steps To Add JS-Flags To Package.json File(s):[/b]
-[ol]
-[li] Open the "package.json" file(s)[/li]
-[li] Find the "js-flags" property (add it if it's not there, example in next step)[/li]
-[li] Add a JS-Flag with 1 empty space in between other flags ([url=https://raw.githubusercontent.com/TheRealDannyyy/Construct-Nwjs-Roundup/master/Assets/Images/Default%2BJSFlag.PNG]Example ➚[/url])[/li][/ol]
 [/tab]
 
 [tab title="NW.js - Workarounds"]
@@ -294,7 +288,7 @@ Garbage Collector is not doing the job and bloats memory usage.
 [b]Steps To Add/Fix/Workaround:[/b]
 [ol]
 [li] Open the "package.json" file(s)[/li]
-[li] Add [b]--expose-gc[/b] to the "js-flags" properties[/li]
+[li] Add [b]--js-flags=--expose-gc[/b] to the "chromium-args" properties[/li]
 [li] Execute the following JS code using the browser plugin:[/li][/ol]
 
 [code lang="javascript"]"global.gc();"[/code][hr]
