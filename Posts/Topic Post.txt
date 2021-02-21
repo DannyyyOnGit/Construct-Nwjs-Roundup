@@ -236,8 +236,11 @@ Bugfix for game eventing:
 
 Testing on higher framerates:
 [ol][li] Open the "package.json" file(s)[/li]
-[li] Add [b]--disable-gpu-vsync[/b] to the "chromium-args" properties[/li]
-[li] Add [b]--limit-fps=X[/b] to the "chromium-args" properties ([i]X = FPS, e.g. --limit-fps=144[/i])[/li][/ol][hr]
+[li] Add [b]--disable-gpu-vsync --disable-frame-rate-limit[/b] to the "chromium-args" properties[/li][/ol]
+
+Limiting the framerate (might not work with NWjs v0.33.0+):
+[ol][li] Open the "package.json" file(s)[/li]
+[li] Add [b]--limit-fps=X[/b] to the "chromium-args" properties ([i]e.g. --limit-fps=144[/i])[/li][/ol][hr]
 
 [h3]How To: Use The Built-in NW.js FPS Counter[/h3]
 Too lazy to add a simple FPS counter to the game.
@@ -325,5 +328,9 @@ Garbage Collector is not doing the job and bloats memory usage.
 [li][b]NW.js [v0.43.1 - v0.43.3]:[/b] [NW2] Regression in window sizing ([url=https://github.com/nwjs/nw.js/issues/7284]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.43.1 - v0.43.3]:[/b] NW2: Users can manually zoom using ALT/CTRL + Mousewheel ([url=https://github.com/nwjs/nw.js/issues/7309]Open Link ➚[/url])[/li]
 [li][b]NW.js [v0.44.0 - v0.46.0]:[/b] Window bar app icon is low quality again ([url=https://github.com/nwjs/nw.js/issues/7361]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.46.0 - ?]:[/b] Non-resizable windows don't fullscreen properly ([url=https://github.com/nwjs/nw.js/issues/7657]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.47.2 - ?]:[/b] Windows chromium-args 260 character limit ([url=https://github.com/nwjs/nw.js/issues/7670]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.50.0 - ?]:[/b] win.requestAttention() doesn't work ([url=https://github.com/nwjs/nw.js/issues/7659]Open Link ➚[/url])[/li]
+[li][b]NW.js [v0.50.0 - ?]:[/b] nwsaveas input does not trigger oncancel ([url=https://github.com/nwjs/nw.js/issues/7658]Open Link ➚[/url])[/li]
 [/ul]
 [/tab]
